@@ -4,16 +4,11 @@
  * and open the template in the editor.
  */
 package ec.edu.intsuperior.vista;
-
-/**
- *
- * @author Daniel C
- */
+import Atxy2k.CustomTextField.RestrictedTextField;
+import javax.swing.JOptionPane;
 public class formulario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formulario
-     */
+ 
     public formulario() {
         initComponents();
         //bucle para genera los dias 
@@ -21,6 +16,13 @@ public class formulario extends javax.swing.JFrame {
         {
             boxdias.addItem(String.valueOf(i));
         }
+            {
+            this.setTitle("formulario");
+            RestrictedTextField restric = new RestrictedTextField(txtanio3); // Se crea un objeto de la clases RestrictedTextField
+            restric.setLimit(4);// restrige el numero de caracteres a ingresa en el txtanio3
+            restric.setOnlyNums(true);// metodo que permite que solo sean ingresado numero.
+                    
+            }
         
     }
 
@@ -33,6 +35,10 @@ public class formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,8 +64,9 @@ public class formulario extends javax.swing.JFrame {
         txtemail4 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        txtvalidar7 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtvalidar7 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -68,12 +75,20 @@ public class formulario extends javax.swing.JFrame {
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnverificar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tbntraspasar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,14 +149,14 @@ public class formulario extends javax.swing.JFrame {
 
         jLabel4.setText("Fecha de Nacimiento:");
 
-        boxdias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona" }));
+        boxdias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         boxdias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxdiasActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril ", "Mayo", "Junio", "Julio ", "Agosto ", "Septiempre", "Octubre", "Noviembre", "Diciembre " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Enero", "Febrero", "Marzo", "Abril ", "Mayo", "Junio", "Julio ", "Agosto ", "Septiempre", "Octubre", "Noviembre", "Diciembre " }));
 
         txtanio3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,8 +180,8 @@ public class formulario extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(30, 30, 30)
-                        .addComponent(boxdias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
+                        .addComponent(boxdias, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(57, 57, 57)))
@@ -178,7 +193,7 @@ public class formulario extends javax.swing.JFrame {
                     .addComponent(txtanio3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 93, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -211,54 +226,71 @@ public class formulario extends javax.swing.JFrame {
 
         jLabel14.setText("Personas con datos Verificados");
 
+        txtvalidar7.setColumns(20);
+        txtvalidar7.setRows(5);
+        jScrollPane3.setViewportView(txtvalidar7);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtrepetir6, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(txtcontrasenia5)
-                    .addComponent(txtemail4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtemail4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcontrasenia5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtrepetir6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtvalidar7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel14)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtrepetir6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtemail4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtemail4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9)
+                            .addComponent(txtcontrasenia5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtrepetir6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(txtcontrasenia5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10))
-                            .addComponent(txtvalidar7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -277,8 +309,13 @@ public class formulario extends javax.swing.JFrame {
 
         jLabel12.setText("Interes:");
 
-        jButton1.setForeground(new java.awt.Color(0, 204, 51));
-        jButton1.setText("Verificar");
+        btnverificar.setForeground(new java.awt.Color(0, 204, 51));
+        btnverificar.setText("Verificar");
+        btnverificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnverificarActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color1"));
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
@@ -297,11 +334,11 @@ public class formulario extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setForeground(new java.awt.Color(153, 153, 153));
-        jButton4.setText("Traspasar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        tbntraspasar.setForeground(new java.awt.Color(153, 153, 153));
+        tbntraspasar.setText("Traspasar");
+        tbntraspasar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                tbntraspasarActionPerformed(evt);
             }
         });
 
@@ -317,13 +354,13 @@ public class formulario extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnverificar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)
                                 .addGap(15, 15, 15)
                                 .addComponent(btnlimpiar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4))
+                                .addComponent(tbntraspasar))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -338,7 +375,7 @@ public class formulario extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jCheckBox6)
                                     .addComponent(jCheckBox3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                 .addComponent(jButton5))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -367,10 +404,10 @@ public class formulario extends javax.swing.JFrame {
                         .addComponent(jButton5)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnverificar)
                     .addComponent(jButton2)
                     .addComponent(btnlimpiar)
-                    .addComponent(jButton4))
+                    .addComponent(tbntraspasar))
                 .addGap(18, 18, 18))
         );
 
@@ -389,7 +426,7 @@ public class formulario extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
@@ -405,10 +442,10 @@ public class formulario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -418,9 +455,16 @@ public class formulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtanio3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void tbntraspasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbntraspasarActionPerformed
+        if(evt.getSource()==tbntraspasar){
+        txtvalidar7.append("Nombre: "+ txtnombre1.getText()+"\n"+"Apellido: "+txtapellido2.getText()+"\n"+"Fecha de nacimiento: "+boxdias.getSelectedItem()+" "
+                +jComboBox2.getSelectedItem()+" "+(String)txtanio3.getText()+"\n"+"Correo: "+txtemail4.getText()+"@"+jComboBox3.getSelectedItem());
+                
+                /*+"/"+(String)boxdias.getSelectedItem()+"/"txtanio3.getText()+" "+"Email:"
+                            +txtemail4.getText().concat("@").concat((String)jComboBox3.getSelectedItem())+"\n");*/
+                                                             
+        }
+    }//GEN-LAST:event_tbntraspasarActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
        if (evt.getSource()==btnlimpiar){
@@ -449,6 +493,78 @@ public class formulario extends javax.swing.JFrame {
     private void boxdiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxdiasActionPerformed
     
     }//GEN-LAST:event_boxdiasActionPerformed
+
+    @SuppressWarnings("fallthrough")
+    private void btnverificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverificarActionPerformed
+        if (evt.getSource()==btnverificar){
+        int fecha;
+        String fecha1;
+        int error=0; 
+        //int verificar =1;
+        //Verificar de que los campos de testo no esten vacios 
+        if (txtnombre1.getText().length()==0|| txtapellido2.getText().length()==0||txtanio3.getText().length()==0
+            ||txtemail4.getText().length()==0|| txtcontrasenia5.getText().length()==0||txtrepetir6.getText().length()==0){
+           error=1; 
+        } else {
+           fecha1=txtanio3.getText();
+           fecha=Integer.parseInt(fecha1);
+           // verificar los rango de la fecha
+           if(fecha<1990||fecha>2017){
+               error=2;
+           }else{
+           // verificar de que las contraseña coincidan
+           if(txtcontrasenia5.getText().contains(txtrepetir6.getText())==false){
+               error=3;
+           }else{
+           //verificar de que sea seleccionado un sexo
+           if(radioM.isSelected()==false && radioF.isSelected()==false){
+               error=4;
+           }else{
+            //verificacion de que almenos un interes se seleccionado
+            if(jCheckBox1.isSelected()==false &&jCheckBox2.isSelected()==false &&jCheckBox3.isSelected()==false
+                &&jCheckBox4.isSelected()==false &&jCheckBox5.isSelected()==false &&jCheckBox6.isSelected()==false)
+            {
+                error=5;
+            }else{
+              //verificar de que el correo no tenga @
+              if(txtemail4.getText().contains("@")==true){
+                  error=6;
+              }
+              }
+              } 
+           }          
+        } 
+               
+        }
+        switch(error){
+            case (1):{
+             JOptionPane.showMessageDialog(null, "Complete todos los campos"); 
+             break;
+            }
+            case (2):{
+             JOptionPane.showMessageDialog(null, "Indique fecha de nacimiento valida");
+             break;
+            }
+            case (3):{
+             JOptionPane.showMessageDialog(null, "la contraseña y la verificacion no coincide");   
+             break;
+            }
+            case (4):{
+             JOptionPane.showMessageDialog(null, "Debe seleccionar su sexo");  
+             break;
+            }
+            case (5):{
+             JOptionPane.showMessageDialog(null, "Seleccion al menos un interes");   
+             break;
+            }
+            default:{
+            JOptionPane.showMessageDialog(null, "Datos verificados");
+           // verificar=1;
+            break;
+            }
+        }
+        }
+    }//GEN-LAST:event_btnverificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -488,9 +604,8 @@ public class formulario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxdias;
     private javax.swing.JButton btnlimpiar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnverificar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -518,14 +633,20 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JRadioButton radioF;
     private javax.swing.JRadioButton radioM;
+    private javax.swing.JButton tbntraspasar;
     private javax.swing.JTextField txtanio3;
     private javax.swing.JTextField txtapellido2;
     private javax.swing.JTextField txtcontrasenia5;
     private javax.swing.JTextField txtemail4;
     private javax.swing.JTextField txtnombre1;
     private javax.swing.JTextField txtrepetir6;
-    private javax.swing.JTextField txtvalidar7;
+    private javax.swing.JTextArea txtvalidar7;
     // End of variables declaration//GEN-END:variables
 }
